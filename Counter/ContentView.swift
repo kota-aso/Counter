@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.yellow
+            Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack {
                 if count < 0 {
@@ -32,7 +32,7 @@ struct ContentView: View {
                         Text("-")
                             .frame(height: UIScreen.main.bounds.height/2.5)
                             .frame(maxWidth: .infinity)
-                            .background(.red)
+                            .background(Color("MinusButtonColor"))
                             .foregroundColor(.white)
                             .font(.system(size: 130, weight: .bold, design: .default))
                             .cornerRadius(10)
@@ -43,7 +43,7 @@ struct ContentView: View {
                         Text("+")
                             .frame(height: UIScreen.main.bounds.height/2.5)
                             .frame(maxWidth: .infinity)
-                            .background(.green)
+                            .background(Color("PlusButtonColor"))
                             .foregroundColor(.white)
                             .font(.system(size: 130, weight: .bold, design: .default))
                             .cornerRadius(10)
