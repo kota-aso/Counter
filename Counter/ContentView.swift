@@ -16,8 +16,15 @@ struct ContentView: View {
             Color.yellow
                 .ignoresSafeArea()
             VStack {
-                Text("\(count)")
-                    .font(.system(size: 130, weight: .bold, design: .default))
+                if count < 0 {
+                    Text("\(count)")
+                        .foregroundColor(.red)
+                        .font(.system(size: 130, weight: .bold, design: .default))
+                } else {
+                    Text("\(count)")
+                        .foregroundColor(.black)
+                        .font(.system(size: 130, weight: .bold, design: .default))
+                }
                 HStack {
                     Button {
                         count -= 1
