@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var count = 0
+    @State var isShowAlert = false
     
     var body: some View {
         ZStack {
@@ -44,7 +45,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button {
-                    count = 0
+                    isShowAlert = true
                 } label: {
                     Text("リセットする")
                         .bold()
@@ -55,7 +56,14 @@ struct ContentView: View {
                         .cornerRadius(10)
                         .overlay(RoundedRectangle(cornerRadius: 10).stroke(.red, lineWidth: 1))
                 }
-                
+                .alert("注意", isPresented: $isShowAlert) {
+                    Button("リセットする", role: .destructive){
+                        count = 0
+                    }
+                    Button("キャンセル" ,role: .cancel){}
+                } message: {
+                    Text("現在のカウントをリセットしますが、本当によろしいでしょうか？")
+                }
             }
         }
         .padding()
